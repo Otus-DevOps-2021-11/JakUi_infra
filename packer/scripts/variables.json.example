@@ -1,7 +1,0 @@
-{
-	"key": "key.json",
-	"fid": "folder_id",
-	"image": "ubuntu-1604-lts",
-        "ssh_username": "appuser",
-        "user_ipv4_nat": "true"
-}
