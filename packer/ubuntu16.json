@@ -2,7 +2,7 @@
     "builders": [
         {
             "type": "yandex",
-            "service_account_key_file": "/JakUi_infra/packer/key.json",
+            "service_account_key_file": "JakUi_infra/packer/key.json",
             "folder_id": "b1gsa3n8df9fiuhlhk24",
             "source_image_family": "ubuntu-1604-lts",
             "image_name": "reddit-base-{{timestamp}}",
