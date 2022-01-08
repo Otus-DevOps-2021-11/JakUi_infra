@@ -3,5 +3,4 @@ output "external_ip_address_app" {
 }
 output "external_load_balancer_address_app" {
   value = element(yandex_lb_network_load_balancer.reddit_app_load_balancer.listener.*.external_address_spec[0][*].address, 1)
-
 }
