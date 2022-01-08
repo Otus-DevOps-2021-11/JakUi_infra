@@ -1,6 +1,5 @@
 
 provider "yandex" {
-  # service_account_key_file = var.service_account_key_file
   token     = var.token
   cloud_id  = var.cloud_id
   folder_id = var.folder_id
@@ -50,7 +49,7 @@ resource "yandex_compute_instance" "app" {
   }
 }
 
-resource "yandex_compute_instance" "app-2" {
+resource "yandex_compute_instance" "app_2" {
   name = "reddit-app2"
 
   resources {
@@ -75,7 +74,7 @@ resource "yandex_compute_instance" "app-2" {
 
   connection {
     type  = "ssh"
-    host  = yandex_compute_instance.app-2.network_interface.0.nat_ip_address
+    host  = yandex_compute_instance.app_2.network_interface.0.nat_ip_address
     user  = "ubuntu"
     agent = false
     private_key = file(var.private_key_path)
