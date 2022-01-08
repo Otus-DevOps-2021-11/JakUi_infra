@@ -23,9 +23,17 @@ variable private_key_path {
 variable image_id {
   description = "Disk image"
 }
+variable network_id {
+  description = "Network"
+  default     = "enp92bdakjlqdr33mghf"
+}
 variable subnet_id {
   description = "Subnet"
   default     = "e2lerbr3up19r3j6nqd1"
+}
+variable external_ipv4 {
+  description = "External IPV4 adress"
+  default     = "51.250.28.254"
 }
 # variable service_account_key_file{
 #   description = "key .json"
