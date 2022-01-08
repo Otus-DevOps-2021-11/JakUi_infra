@@ -12,7 +12,7 @@ resource "yandex_lb_network_load_balancer" "reddit_app_load_balancer" {
   }
 
   attached_target_group {
-    target_group_id = var.network_id
+    target_group_id = yandex_lb_target_group.target_group.id
 
     healthcheck {
       name = "http"
