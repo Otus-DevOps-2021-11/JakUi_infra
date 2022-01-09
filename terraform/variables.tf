@@ -35,6 +35,7 @@ variable external_ipv4 {
   description = "External IPV4 adress"
   default     = "51.250.28.254"
 }
-# variable service_account_key_file{
-#   description = "key .json"
-# }
+variable instance_count {
+  description = "Number of instances to create"
+  default     = 1
+}

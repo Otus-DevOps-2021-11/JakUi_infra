@@ -1,10 +1,10 @@
 
 resource "yandex_lb_network_load_balancer" "reddit_app_load_balancer" {
-  name        = "reddit-app-load-balancer"
+  name = "reddit-app-load-balancer"
 
   listener {
-    name = "listener-1"
-    port = 80
+    name        = "listener-1"
+    port        = 80
     target_port = 9292
     external_address_spec {
       ip_version = "ipv4"

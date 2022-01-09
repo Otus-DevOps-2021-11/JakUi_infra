@@ -1,17 +1,17 @@
-output "external_ip_address_app_1" {
-  value = yandex_compute_instance.app.network_interface.0.nat_ip_address
+output "external_ip_address_app-1" {
+  value = yandex_compute_instance.reddit-app.*.network_interface.0.nat_ip_address[0]
 }
 
-output "internal_ip_app_1" {
-  value = yandex_compute_instance.app.network_interface.0.ip_address
+output "internal_ip_app" {
+  value = yandex_compute_instance.reddit-app.*.network_interface.0.ip_address[0]
 }
 
-output "external_ip_address_app_2" {
-  value = yandex_compute_instance.app_2.network_interface.0.nat_ip_address
+output "external_ip_address_app-2" {
+  value = yandex_compute_instance.reddit-app.*.network_interface.0.nat_ip_address[1]
 }
 
-output "internal_ip_app_2" {
-  value = yandex_compute_instance.app_2.network_interface.0.ip_address
+output "internal_ip_app-2" {
+  value = yandex_compute_instance.reddit-app.*.network_interface.0.ip_address[1]
 }
 
 output "target_group_info" {
