@@ -1,4 +1,5 @@
 # JakUi_infra
+
 JakUi Infra repository
 YCloud VMs
 bastion_IP = 51.250.28.88
@@ -13,6 +14,7 @@ someinternalhost_IP = 10.129.0.30
 - Параметризовал шаблон и другие опции билдера
 
 ## Чтобы создать instance с деплоем приложения запустите команду ниже
+
 ```yc compute instance create    \
 --name reddit \
 --hostname reddit \
@@ -22,3 +24,18 @@ someinternalhost_IP = 10.129.0.30
 --metadata-from-file user-data=cloud-init.yml \
 --metadata 'serial-port-enable=1'
 ```
+
+## Проблемы в конфигурации terraform ресурсов путём копирования и вставки кода
+
+- Увеличивается размер файла (больше кода)
+- Для каждого инстанса нужно менять имя и некоторые параметры вручную (а если инстансов много?..)
+- В случае, если нужно внести правки придётся править resource для каждого инстанса
+
+## Как развернуть приложение на два instance используя terraform
+
+1. Создайте файл `variables.tf`, в нём укажите значения переменных ```cloud_id, folder_id, zone, image_id, public_key_path,``` 
+```private_key_path, network_id, subnet_id, external_ipv4, token, instance_count```
+
+2. Выполните комманду terraform apply
+
+3. Для проверки работоспособности приложения в браузере перейдите по адресу loadbalancer'a (значение output-переменной `external_load_balancer_address_app`).
