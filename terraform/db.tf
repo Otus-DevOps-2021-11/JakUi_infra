@@ -5,7 +5,7 @@ resource "yandex_compute_instance" "db" {
   }
 
   resources {
-    cores  = 1
+    cores  = 2
     memory = 2
   }
 
