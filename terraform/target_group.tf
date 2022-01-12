@@ -8,8 +8,8 @@ resource "yandex_lb_target_group" "target_group" {
     address   = yandex_compute_instance.reddit-app[0].network_interface.0.ip_address
   }
 
-  target {
-    subnet_id = var.subnet_id
-    address   = yandex_compute_instance.reddit-app[1].network_interface.0.ip_address
-  }
+  # target {
+  #   subnet_id = var.subnet_id
+  #   address   = yandex_compute_instance.reddit-app[1].network_interface.0.ip_address
+  # }
 }
