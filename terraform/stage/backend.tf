@@ -7,9 +7,9 @@ terraform {
 
   backend "s3" {
     endpoint   = "storage.yandexcloud.net"
-    bucket     = "reddit-app-bucket-2"
+    bucket     = "reddit-app-bucket"
     region     = "us-east-1"
-    key        = "prod-1/terraform-state.tfstate"
+    key        = "stage/terraform-state.tfstate"
     access_key       = "GEW1m4aOa4Rx"
     secret_key       = "i0UQyDQdggmOpoxLPB_kI9"
 
