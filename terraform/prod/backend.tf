@@ -7,11 +7,11 @@ terraform {
 
   backend "s3" {
     endpoint   = "storage.yandexcloud.net"
-    bucket     = "reddit-app-bucket-2"
+    bucket     = "reddit-app-bucket"
     region     = "us-east-1"
-    key        = "prod-1/terraform-state.tfstate"
-    access_key       = "GEW1m4aOa4Rx"
-    secret_key       = "i0UQyDQdggmOpoxLPB_kI9"
+    key        = "prod/terraform-state.tfstate"
+    access_key       = "GEW1m4x"
+    secret_key       = "i0UQyDQdgqM4QBpgmOpoxLPB_kI9"
 
     skip_region_validation      = true
     skip_credentials_validation = true
