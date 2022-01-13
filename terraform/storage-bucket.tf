@@ -5,7 +5,7 @@ locals {
 provider "yandex" {
   folder_id = local.folder_id
   zone      = "ru-central1-a"
-  token     = "AQAAAABbbNgTAATuwaWzacySDkZ4g99PYL4OuAo"
+  token     = "AQAAAg99PYL4OuAo"
 }
 
 // Create SA
