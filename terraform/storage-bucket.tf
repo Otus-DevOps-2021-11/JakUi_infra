@@ -5,7 +5,7 @@ locals {
 provider "yandex" {
   folder_id = local.folder_id
   zone      = "ru-central1-a"
-  service_account_key_file = ""
+  token     = "AQAAAABbbNgTAATuwaWzacySDkZ4g99PYL4OuAo"
 }
 
 // Create SA
@@ -32,4 +32,12 @@ resource "yandex_storage_bucket" "test" {
   access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
   secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
   bucket = "reddit-app-bucket"
+}
+
+resource "yandex_storage_object" "object-storage" {
+  bucket = "reddit-app-bucket"
+  key    = "terraform-state"
+  source = "terraform.tfstate"
+  access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+  secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
 }
