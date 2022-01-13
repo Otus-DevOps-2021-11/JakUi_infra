@@ -9,21 +9,21 @@ provider "yandex" {
 }
 
 // Create SA
-resource "yandex_iam_service_account" "sa" {
+resource "yandex_iam_service_account" "sa2" {
   folder_id = local.folder_id
-  name      = "reddit-app-sa"
+  name      = "reddit-app-sa2"
 }
 
 // Grant permissions
-resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
+resource "yandex_resourcemanager_folder_iam_member" "sa2-editor" {
   folder_id = local.folder_id
   role      = "storage.editor"
-  member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+  member    = "serviceAccount:${yandex_iam_service_account.sa2.id}"
 }
 
 // Create Static Access Keys
 resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
-  service_account_id = yandex_iam_service_account.sa.id
+  service_account_id = yandex_iam_service_account.sa2.id
   description        = "static access key for object storage"
 }
 
@@ -32,12 +32,4 @@ resource "yandex_storage_bucket" "test" {
   access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
   secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
   bucket = "reddit-app-bucket"
-}
-
-resource "yandex_storage_object" "object-storage" {
-  bucket = "reddit-app-bucket"
-  key    = "terraform-state"
-  source = "terraform.tfstate"
-  access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
-  secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
 }
