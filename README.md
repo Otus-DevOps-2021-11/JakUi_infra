@@ -46,6 +46,6 @@ someinternalhost_IP = 10.129.0.30
 ### Команда ansible app -m command -a 'rm -rf ~/reddit' и повторное выполнение плейбука
 
 При выполнени плейбука `Сlone` в первый раз, ansible выполнит модуль `setup` для сбора `gathers facts`, затем - 
-скопирует репозиториий `https://github.com/express42/reddit.git`в папку `~/reddit`, команда
+скопирует репозиториий `https://github.com/express42/reddit.git` в папку `~/reddit`, команда
 `ansible app -m command -a 'rm -rf ~/reddit'` удаляет файлы репозитория. При повторном выполнении плейбука `clone`
 ansible не выполняет модуль `setup` (не собирает `gathers facts`), поэтому изменение только одно.
