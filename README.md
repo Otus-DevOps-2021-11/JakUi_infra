@@ -38,4 +38,14 @@ someinternalhost_IP = 10.129.0.30
 
 2. Выполните комманду terraform apply
 
-3. Для проверки работоспособности приложения в браузере перейдите по адресу loadbalancer'a (значение output-переменной `external_load_balancer_address_app`).
+3. Для проверки работоспособности приложения в браузере перейдите по адресу loadbalancer'a (значение output-переменной
+   `external_load_balancer_address_app`).
+
+## Управление конфигурацией. Основные DevOps инструменты. Знакомство с Ansible
+
+### Команда ansible app -m command -a 'rm -rf ~/reddit' и повторное выполнение плейбука
+
+При выполнени плейбука `Сlone` в первый раз, ansible выполнит модуль `setup` для сбора `gathers facts`, затем - 
+скопирует репозиториий `https://github.com/express42/reddit.git`в папку `~/reddit`, команда
+`ansible app -m command -a 'rm -rf ~/reddit'` удаляет файлы репозитория. При повторном выполнении плейбука `clone`
+ansible не выполняет модуль `setup` (не собирает `gathers facts`), поэтому изменение только одно.
