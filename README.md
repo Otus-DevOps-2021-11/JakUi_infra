@@ -40,6 +40,12 @@ someinternalhost_IP = 10.129.0.30
 
 3. Для проверки работоспособности приложения в браузере перейдите по адресу loadbalancer'a (значение output-переменной
    `external_load_balancer_address_app`).
+## Хранение состояний (terraform.tfstate) в облаке
+
+access_key, secret_access_key необходимые для доступа к bucket хранятся отдельно (прописал их в bashrc по шаблону
+`export AWS_ACCESS_KEY="access_key"`, `export AWS_SECRET_ACCESS_KEY="secret_access_key"`)
+
+Конфиг-файл для терраформ хранится в облаке в bucket'е `reddit-app-bucket`. Для каждого типа приложения (stage/prod) создан отдельный backend. Для переключения на конфиг-файл конкретного окружения нужно перейти в папку stage для переключения на config stage-окружения или prod для переключения на config prod-окружения и выполнить команду `terraform init`
 
 ## Управление конфигурацией. Основные DevOps инструменты. Знакомство с Ansible
 
@@ -50,10 +56,3 @@ someinternalhost_IP = 10.129.0.30
 `ansible app -m command -a 'rm -rf ~/reddit'` удаляет файлы репозитория. При повторном выполнении плейбука `clone`
 ansible не выполняет модуль `setup` (не собирает `gathers facts`), поэтому изменение только одно.
 3. Для проверки работоспособности приложения в браузере перейдите по адресу loadbalancer'a (значение output-переменной `external_load_balancer_address_app`).
-
-## Хранение состояний (terraform.tfstate) в облаке
-
-access_key, secret_access_key необходимые для доступа к bucket хранятся отдельно (прописал их в bashrc по шаблону
-`export AWS_ACCESS_KEY="access_key"`, `export AWS_SECRET_ACCESS_KEY="secret_access_key"`)
-
-Конфиг-файл для терраформ хранится в облаке в bucket'е `reddit-app-bucket`. Для каждого типа приложения (stage/prod) создан отдельный backend. Для переключения на конфиг-файл конкретного окружения нужно перейти в папку stage для переключения на config stage-окружения или prod для переключения на config prod-окружения и выполнить команду `terraform init`
