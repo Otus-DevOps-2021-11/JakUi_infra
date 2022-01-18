@@ -39,3 +39,10 @@ someinternalhost_IP = 10.129.0.30
 2. Выполните комманду terraform apply
 
 3. Для проверки работоспособности приложения в браузере перейдите по адресу loadbalancer'a (значение output-переменной `external_load_balancer_address_app`).
+
+## Хранение состояний (terraform.tfstate) в облаке
+
+access_key, secret_access_key необходимые для доступа к bucket хранятся отдельно (прописал их в bashrc по шаблону
+`export AWS_ACCESS_KEY="access_key"`, `export AWS_SECRET_ACCESS_KEY="secret_access_key"`)
+
+Конфиг-файл для терраформ хранится в облаке в bucket'е `reddit-app-bucket`. Для каждого типа приложения (stage/prod) создан отдельный backend. Для переключения на конфиг-файл конкретного окружения нужно перейти в папку stage для переключения на config stage-окружения или prod для переключения на config prod-окружения и выполнить команду `terraform init`

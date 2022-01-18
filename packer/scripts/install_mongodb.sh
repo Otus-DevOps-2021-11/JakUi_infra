@@ -9,6 +9,7 @@ tee /etc/apt/sources.list.d/mongodb-org-4.2.list
 
 # Install Mongodb
 apt-get update;
+sleep 3m
 apt-get install -y mongodb-org
 
 # Run Mongodb
