@@ -29,7 +29,7 @@ def make_json_inventory():
                     inventory[keys[x - 1]]["hosts"][elements[e - 1]] = \
                     {elements[e][ : elements[e].find("=")] : elements[e][elements[e].find("=") + 1 : ]}
 
-    print(f"inventory {inventory}")
+    print(f"inventory {json.dumps(inventory)}")
 
     with open('inventory.json', 'w') as f:
         f.write(json.dumps(inventory))
