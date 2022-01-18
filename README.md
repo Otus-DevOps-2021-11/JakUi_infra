@@ -40,6 +40,7 @@ someinternalhost_IP = 10.129.0.30
 
 3. Для проверки работоспособности приложения в браузере перейдите по адресу loadbalancer'a (значение output-переменной
    `external_load_balancer_address_app`).
+
 ## Хранение состояний (terraform.tfstate) в облаке
 
 access_key, secret_access_key необходимые для доступа к bucket хранятся отдельно (прописал их в bashrc по шаблону
@@ -55,7 +56,6 @@ access_key, secret_access_key необходимые для доступа к bu
 скопирует репозиториий `https://github.com/express42/reddit.git` в папку `~/reddit`, команда
 `ansible app -m command -a 'rm -rf ~/reddit'` удаляет файлы репозитория. При повторном выполнении плейбука `clone`
 ansible не выполняет модуль `setup` (не собирает `gathers facts`), поэтому изменение только одно.
-3. Для проверки работоспособности приложения в браузере перейдите по адресу loadbalancer'a (значение output-переменной `external_load_balancer_address_app`).
 
 ### Создание и использование inventory.json в качестве inventory-файла
 **Disclaimer: скрипт работает только c одним хостом в группе, с любым количеством групп. Править на любое кол-во хостов**
