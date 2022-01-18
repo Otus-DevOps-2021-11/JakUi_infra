@@ -1,0 +1,12 @@
+cloud_id          = "b1gjpxpxpxpep2g3"
+folder_id         = "b1gsa3n8df9fiuhlhk24"
+zone              = "ru-central1-b"
+image_id          = "fd87dsfxvcbn2j6r4d14"
+public_key_path   = "~/.ssh/ubuntu.pub"
+private_key_path  = "~/.ssh/ubuntu"
+network_id        = "enp2132ripbb2as"
+subnet_id         = "e2ldfh4s3up19r3j6nqd1"
+external_ipv4     = "51.250.28.254"
+token             = "AQAAAASDF34599PYL4OuAo"
+instance_count   = 1
+# service_account_key_file = "key.json"
