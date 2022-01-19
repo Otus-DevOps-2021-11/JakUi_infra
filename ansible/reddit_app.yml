@@ -3,7 +3,7 @@
   hosts: all
   vars:
     mongo_bind_ip: 0.0.0.0 # <-- Переменная задается в блоке vars
-    db_host: 10.128.0.19 # <-- подставьте сюда ваш IP
+    db_host: 10.128.0.17 # <-- подставьте сюда ваш IP
 
   tasks:
   - name: Change mongo config file
@@ -23,15 +23,15 @@
     tags: app-tag
     notify: reload puma
 
-  - name: enable puma
-    become: true
-    systemd: name=puma enabled=yes
-    tags: app-tag
-
   - name: Add config for DB connection
     template:
       src: templates/db_config.j2
       dest: /home/ubuntu/db_config
+    tags: app-tag
+
+  - name: enable puma
+    become: true
+    systemd: name=puma enabled=yes
     tags: app-tag
 
   - name: Fetch the latest version of application code
