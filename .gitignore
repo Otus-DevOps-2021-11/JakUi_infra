@@ -5,3 +5,4 @@ packer/variables.json
 *.tfvars
 .terraform/
 key.json
+*.retry
