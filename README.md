@@ -38,7 +38,8 @@ someinternalhost_IP = 10.129.0.30
 
 2. Выполните комманду terraform apply
 
-3. Для проверки работоспособности приложения в браузере перейдите по адресу loadbalancer'a (значение output-переменной `external_load_balancer_address_app`).
+3. Для проверки работоспособности приложения в браузере перейдите по адресу loadbalancer'a (значение output-переменной
+   `external_load_balancer_address_app`).
 
 ## Хранение состояний (terraform.tfstate) в облаке
 
@@ -46,3 +47,23 @@ access_key, secret_access_key необходимые для доступа к bu
 `export AWS_ACCESS_KEY="access_key"`, `export AWS_SECRET_ACCESS_KEY="secret_access_key"`)
 
 Конфиг-файл для терраформ хранится в облаке в bucket'е `reddit-app-bucket`. Для каждого типа приложения (stage/prod) создан отдельный backend. Для переключения на конфиг-файл конкретного окружения нужно перейти в папку stage для переключения на config stage-окружения или prod для переключения на config prod-окружения и выполнить команду `terraform init`
+
+## Управление конфигурацией. Основные DevOps инструменты. Знакомство с Ansible
+
+### Команда ansible app -m command -a 'rm -rf ~/reddit' и повторное выполнение плейбука
+
+При выполнени плейбука `Сlone` в первый раз, ansible выполнит модуль `setup` для сбора `gathers facts`, затем - 
+скопирует репозиториий `https://github.com/express42/reddit.git` в папку `~/reddit`, команда
+`ansible app -m command -a 'rm -rf ~/reddit'` удаляет файлы репозитория. При повторном выполнении плейбука `clone`
+ansible не выполняет модуль `setup` (не собирает `gathers facts`), поэтому изменение только одно.
+
+### Создание и использование inventory.json в качестве inventory-файла
+**Disclaimer: скрипт работает только c одним хостом в группе, с любым количеством групп. Править на любое кол-во хостов**
+**в группе я его не планирую (слишком сложно))**
+
+В этой конфигурации ansible по умолчанию будет использовать только файл `inventory.json` (он уже создан). Для создания
+или обновления файла `inventory.json` нужно:
+
+1. Перейти в папку `ansible`
+2. Внести необходимые изменения в файл `inventory` (данные беру оттуда)
+3. Выполнить скрипт json_inventory.py

@@ -1,0 +1,1 @@
+{"app": {"hosts": {"appserver": {"ansible_host": "62.84.127.5"}}}, "db": {"hosts": {"dbserver": {"ansible_host": "62.84.127.179"}}}, "db_1": {"hosts": {"dbserver_1": {"ansible_host": "62.84.127.179"}}}, "db_2": {"hosts": {"dbserver_2": {"ansible_host": "62.84.127.179"}}}}
