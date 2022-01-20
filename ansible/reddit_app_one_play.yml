@@ -6,9 +6,6 @@
     db_host: 10.128.0.17 # <-- подставьте сюда ваш IP
 
   tasks:
-  - name: debug
-    debug: "mongo_bind_ip {{ mongo_bind_ip }}"
-    tags: db-tag
 
   - name: Change mongo config file
     become: true # <-- Выполнить задание от root
