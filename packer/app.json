@@ -1,7 +1,7 @@
 {    "builders": [
     {
         "type": "yandex",
-        "service_account_key_file": "key.json",
+        "service_account_key_file": "/home/klyschenko/DevOps/key.json",
         "folder_id": "b1gsa3n8df9fiuhlhk24",
         "source_image_family": "ubuntu-1604-lts",
         "image_name": "reddit-base-{{timestamp}}",
@@ -13,9 +13,8 @@
     ],
     "provisioners": [
         {
-            "type": "shell",
-            "script": "scripts/install_ruby.sh",
-            "execute_command": "sudo {{.Path}}"
+        "type": "ansible",
+        "playbook_file": "../ansible/packer_app.yml"
         }
-    ]
+       ]
 }

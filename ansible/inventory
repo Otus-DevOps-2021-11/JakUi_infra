@@ -2,4 +2,4 @@
 appserver ansible_host=84.201.130.228
 
 [db]
-dbserver ansible_host=62.84.125.140
+dbserver ansible_host=84.201.134.231

@@ -1,11 +1,11 @@
 - name: Application Deploy
   hosts: app
-
+  become: true
   tasks:
-    - name: Update repository
-      apt_repository:
-        repo: 'ppa:git-core/ppa'
-        state: present
+    # - name: Update repository
+    #   apt_repository:
+    #     repo: 'ppa:git-core/ppa'
+    #     state: present
 
     - name: Install git
       apt:
