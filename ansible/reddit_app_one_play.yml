@@ -2,7 +2,7 @@
 - name: Configure hosts & deploy application
   hosts: all
   vars:
-    mongo_bind_ip: 10.128.0.17 # <-- Переменная задается в блоке vars
+    mongo_bind_ip: 0.0.0.0 # <-- Переменная задается в блоке vars
     db_host: 10.128.0.17 # <-- подставьте сюда ваш IP
 
   tasks:
@@ -57,7 +57,3 @@
   - name: reload puma
     become: true
     systemd: name=puma state=restarted
-    # systemd:
-    #   name: puma
-    #   daemon_reload: yes
-    #   state: restarted
