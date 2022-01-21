@@ -1,4 +1,3 @@
-
 - name: Install Ruby and Bundle
   hosts: app
   become: true
@@ -21,9 +20,3 @@
       with_items:
         - ruby-bundler
         - build-essential
-    
-    # - name: Install ruby
-    #   apt:
-    #     name: ruby-full
-    #     state: present
-    #     update_cache: yes
