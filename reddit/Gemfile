@@ -6,6 +6,7 @@ gem 'haml'
 gem 'bson_ext'
 gem 'puma'
 gem 'mongo'
+gem 'bson'
 gem 'json'
 gem 'rack-test'
 
