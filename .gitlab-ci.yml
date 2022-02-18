@@ -9,8 +9,11 @@ variables:
   DATABASE_URL: 'mongodb://mongo/user_posts'
 
 before_script:
+  - echo 'Start!'
   - cd reddit
+  - echo 'start bundle install'
   - bundle install
+  - echo 'Finished bundle install'
 
 build_job:
   stage: build
