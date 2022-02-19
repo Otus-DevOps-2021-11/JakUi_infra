@@ -10,6 +10,7 @@ gem 'bson'
 gem 'bson_ext'
 gem 'json'
 gem 'rack-test'
+gem 'test-unit'
 
 group :development do
     gem 'capistrano',         require: false
