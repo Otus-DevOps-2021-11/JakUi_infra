@@ -1,8 +1,14 @@
+---
 - name: Add APT key
   apt_key:
     id: "EA312927"
     keyserver: keyserver.ubuntu.com
   tags: install
+
+# - name: Add APT key
+#   ansible.builtin.shell:
+#     cmd: echo apt-key -h
+#   tags: install
 
 - name: Add APT repository
   apt_repository:
