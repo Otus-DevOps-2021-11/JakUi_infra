@@ -8,3 +8,7 @@
     - name: Install python for Ansible
       raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
       changed_when: False
+
+    - name: Install python-apt package
+      pip:
+        name: python-apt
