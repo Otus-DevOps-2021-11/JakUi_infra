@@ -1,22 +1,6 @@
 - name: Install Ruby and Bundle
   hosts: app
   become: true
-
-  tasks:
-    - name: Update repository
-      apt_repository:
-        repo: 'ppa:git-core/ppa'
-        state: present
-
-    - name: Install ruby
-      apt:
-        name: ruby-full
-        state: present
-        update_cache: yes
-
-    - name: Install requirements
-      apt:
-        name: "{{ item }}"
-      with_items:
-        - ruby-bundler
-        - build-essential
+  roles: 
+    - app
+    - jdauphant.nginx

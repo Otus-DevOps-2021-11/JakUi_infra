@@ -3,30 +3,5 @@
 - name: Install Mongo Db
   hosts: db
   become: true
-
-  tasks:
-  - name: Add an Apt mongodb signing key
-    apt_key:
-      url: https://www.mongodb.org/static/pgp/server-4.2.asc
-      state: present
-
-  - name: Add Add Mongodb repo into sources list
-    apt_repository:
-      repo: deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.2 multiverse
-      state: present
-
-  - name: Update and upgrade apt packages
-    become: true
-    apt:
-      upgrade: yes
-      update_cache: yes
-
-  - name: Install Mongodb
-    apt:
-      name: mongodb-org
-      state: present
-      update_cache: yes
-
-  handlers:
-  - name: restart mongod
-    service: name=mongod state=restarted
+  roles:
+    - db
